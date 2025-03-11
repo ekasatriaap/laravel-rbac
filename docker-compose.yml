@@ -1,0 +1,31 @@
+services:
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: laravel-rbac-app
+        ports:
+            - "8080:80"
+        volumes:
+            - ./:/app
+        # command: bash -c "php artisan octane:frankenphp"
+        networks:
+            - laravel-rbac-network
+
+    mariadb:
+        image: mariadb
+        container_name: laravel-rbac-mariadb
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+        volumes:
+            - mariadb-data:/var/lib/mysql
+        networks:
+            - laravel-rbac-network
+
+volumes:
+    mariadb-data:
+
+networks:
+    laravel-rbac-network:
