@@ -4,10 +4,10 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="{{ route('dashboard') }}">Work Order</a>
+            <a href="{{ route('dashboard') }}">STISLA</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="{{ route('dashboard') }}">WO</a>
+            <a href="{{ route('dashboard') }}">S</a>
         </div>
         <ul class="sidebar-menu">
             <li class="{{ $current == 'dashboard' ? 'active' : '' }}">
