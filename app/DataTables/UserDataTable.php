@@ -41,11 +41,13 @@ class UserDataTable extends BaseDataTable
         $param = $this->getParam();
         $id = $param['id'];
         $level = $param['level'];
+        $fid_role = $this->request->get("fid_role") ?? null;
         return $model->with([
             "role" => function ($query) use ($level) {
                 $query->select("id", "name")->when(!userIsRoot(), fn($query) => $query->where("level", ">", $level));
             }
-        ])->where("id", "!=", $id)
+        ])->when($fid_role, fn($query) => $query->where("id_role", $fid_role))
+            ->where("id", "!=", $id)
             ->where("is_root", FALSE);
     }
 

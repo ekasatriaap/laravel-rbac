@@ -11,6 +11,15 @@
                     @endcan
                 @endslot
 
+                <x-form method="GET" id="form-filter">
+                    <x-card-filter class="mb-5">
+                        <div class="col-lg-9">
+                            <x-form-select-inline label="Role" class="form-select-sm" name="fid_role" id="id-role"
+                                :options="$roles" placeholder="Semua role.." value="" />
+                        </div>
+                    </x-card-filter>
+                </x-form>
+
                 <div class="table-responsive">
                     {{ $dataTable->table(['class' => 'table table-striped']) }}
                 </div>
@@ -20,5 +29,10 @@
 
     @push('add-scripts')
         {!! $dataTable->scripts() !!}
+        <script>
+            $(document).ready(function() {
+                setFilterDataTable(['#id-role'], `#${DATATABLE_ID}`);
+            });
+        </script>
     @endpush
 </x-app-layout>

@@ -18,8 +18,12 @@ class UserController extends BaseController
 
     public function index(UserDataTable $dataTable)
     {
+        $is_root = auth()->user()->is_root;
+        $level = auth()->user()->role?->level ?? 0;
         $data = [
             "title" => "Users",
+            "roles" => Role::when(!$is_root, fn($query) => $query->where("level", ">", $level))
+                ->pluck("name", "id"),
         ];
         $auth = auth()->user();
         $param = [
