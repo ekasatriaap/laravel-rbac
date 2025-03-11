@@ -32,8 +32,8 @@ Sebelum menjalankan aplikasi ini, pastikan Anda telah menginstal perangkat lunak
     Sebelum melakukan instalasi, clone project terlebih dahulu
 
     ```bash
-    git clone https://github.com/ekasatriaap/work-order.git
-    cd work-order
+    git clone https://github.com/ekasatriaap/laravel-rbac.git
+    cd laravel-rbac
     ```
 
 2. **Konfigurasi file environment**:
@@ -79,12 +79,12 @@ Sebelum menjalankan aplikasi ini, pastikan Anda telah menginstal perangkat lunak
     Jalankan perintah berikut untuk menghasilkan aplikasi key:
 
     ```bash
-    docker exec work-order-app php artisan key:generate
+    docker exec laravel-rbac-app php artisan key:generate
     ```
 
 5. **Membuat database**:
 
-    Koneksikan database client dengan database dengan username root dan password root. Buat database dengan nama work-order di dalam container.
+    Koneksikan database client dengan database dengan username root dan password root. Buat database dengan nama laravel-rbac di dalam container.
 
 6. **Migrasi data**:
 
@@ -121,7 +121,7 @@ Sebelum menjalankan aplikasi ini, pastikan Anda telah menginstal perangkat lunak
 
 3. **Membuat database**:
 
-    Buat database dengan nama work-order.
+    Buat database dengan nama laravel-rbac.
 
 4. **Migrasi data**:
 
